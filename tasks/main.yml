@@ -1,0 +1,6 @@
+---
+- name: "Handling step-cli role"
+  ansible.builtin.import_tasks: step-cli.yml
+  when: ansible_pkg_mgr == 'apt'
+  tags:
+    - step-cli
