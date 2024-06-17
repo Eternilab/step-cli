@@ -1,10 +1,18 @@
 ---
 ### Pre-Installation
+- name: "Download latest Debian package of step-cli"
+  ansible.builtin.get_url:
+    url: "https://dl.smallstep.com/cli/docs-cli-install/latest/step-cli_amd64.deb"
+    dest: "{{ stepcli_tmp_dir }}/step-cli_amd64.deb"
+  environment: "{{ proxy_env }}"
+  check_mode: false
+  tags:
+    - install
 
 ### Installation
 - name: "Be sure step-cli is at its latest version (APT based)"
   ansible.builtin.apt:
-    deb: "{{ stepcli_apt_packages }}"
+    deb: "{{ stepcli_tmp_dir }}/{{ stepcli_apt_packages }}"
     state: "{{ stepcli_apt_state }}"
   become: true
   when: ansible_pkg_mgr == 'apt'
