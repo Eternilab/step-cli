@@ -1,7 +1,7 @@
 ---
-stepcli_apt_state: present
-stepcli_apt_packages: step-cli_amd64.deb
+step_cli_apt_state: present
+step_cli_apt_packages: step-cli_amd64.deb
 
-stepcli_tmp_dir: /tmp
+step_cli_tmp_dir: /tmp
 
 proxy_env:
