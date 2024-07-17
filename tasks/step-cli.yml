@@ -4,6 +4,7 @@
   ansible.builtin.get_url:
     url: "https://dl.smallstep.com/cli/docs-cli-install/latest/step-cli_amd64.deb"
     dest: "{{ step_cli_tmp_dir }}/step-cli_amd64.deb"
+    mode: '0600'
   environment: "{{ proxy_env }}"
   check_mode: false
   tags:
