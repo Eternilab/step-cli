@@ -1,4 +1,20 @@
 ---
+###########################
+### Facts set
+
+- name: "Show architecture"
+  debug:
+    msg: "Arch : {{ ansible_architecture }}"
+  tags:
+    - install
+
+- name: "Set step_cli_arch variable from facts"
+  set_fact:
+    step_cli_arch: "{{ step_cli_arch_match[ansible_architecture] }}"
+  tags:
+    - install
+
+###########################
 ### Pre-Installation
 - name: "Download latest Debian package of step-cli"
   ansible.builtin.get_url:
@@ -10,6 +26,7 @@
   tags:
     - install
 
+###########################
 ### Installation
 - name: "Be sure step-cli is installed at its latest version (APT based)"
   ansible.builtin.apt:
@@ -20,6 +37,7 @@
   tags:
     - install
 
+###########################
 ### Configuration
 # - name: "Copy proxy configuration to APT (if needed)"
 #   ansible.builtin.template:

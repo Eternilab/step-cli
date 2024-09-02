@@ -1,4 +1,26 @@
 ---
+# Hardware Architecture
+# Can be any of :
+# amd64, 383, arm64, armv7
+# Linux is the only OS supported because of the binaries available on Github
+#step_ca_arch: is set at the beginning of playbook from the following match list
+step_ca_arch_match:
+  i386: "386"
+  i686: "386"
+  x86_64: "amd64"
+  armv5: "armv5"
+  armv5l: "armv5"
+  armv5h: "armv5"
+  armv6: "armv6"
+  armv6l: "armv6"
+  armv6h: "armv6"
+  armv7: "armv7"
+  armv7l: "armv7"
+  armv7h: "armv7"
+  armv8b: "arm64"
+  armv8l: "arm64"
+  aarch64: "arm64"
+
 step_cli_apt_state: present
 step_cli_apt_packages: step-cli_amd64.deb
 
